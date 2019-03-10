@@ -4,6 +4,7 @@ using System.Text;
 using GraniteHouse.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using OnClickSolution.Models;
 
 namespace GraniteHouse.Data
 {
@@ -19,6 +20,7 @@ namespace GraniteHouse.Data
 
         public DbSet<Appointments> Appointments { get; set; }
         public DbSet<ProductsSelectedForAppointment> ProductsSelectedForAppointment { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
 
     }
