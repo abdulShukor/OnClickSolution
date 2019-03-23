@@ -1,0 +1,104 @@
+﻿@model OnClickSolution.Models.ViewModel.CustomerHomeVM
+<!-- sidebar-->
+<div class="row">
+    <div class="col-3 ">
+        <!-- Search bar-->
+
+
+        <div class="position-fixed">
+            <div>
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+            {
+
+                    <div class="form-group row  mt-4">
+                        <div class="col-8">
+                            <input type="text" name="keyword" class="form-control" />
+                        </div>
+                        <div class="col-1">
+                            <input type="submit" class="btn btn-primary" value="Go" />
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- Categories-->
+            <div>
+                <div class="sidebar-header">
+                    <h4 class="navbar-text">Browse by Category</h4>
+                </div>
+                <ul class="list-unstyled components">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <li>
+                            <a asp-action="Index" asp-controller="Home" asp-route-id="@category.Id">@category.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Special Tags-->
+            <div>
+                <div class="sidebar-header">
+                    <h4 class="navbar-text">Browse by Tags</h4>
+                </div>
+                <ul class="list-unstyled components">
+                    @foreach (var tag in Model.SpecialTags)
+                    {
+                        <li>
+                            <a asp-action="Filter" asp-controller="Home" asp-route-id="@tag.Id">@tag.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- content-->
+
+    <div class="col-9 mt-5">
+        <div class="container-fluid">
+            @if (Model.Products.Count == 0)
+            {
+                <div class="mt-5" style="height:20em;">
+                    <p class="p-4 alert alert-danger">No item found for this category/Searched keyword. Please try Shop All</p>
+                </div>
+            }
+            else
+            {
+
+                <div class="row">
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="col-6">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4 class="my-0 font-weight-normal">
+                                        <label style="font-size:23px;color:steelblue;">@product.Name</label>
+                                    </h4>
+                                </div>
+                                <img class="card-img-top" style="height:100%;" src="@product.Image" alt="Card Image" />
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            @if (product.PromotionalPrice > 0)
+                                            {
+                                                <label style="font-size:20px; color:darkslategrey"><del>$@product.OriginalPrice</del></label>
+                                                <label style="font-size:20px; color:#a51313; padding-left:0.5em;"><b>$@product.PromotionalPrice</b></label>
+                                            }
+                                            else
+                                            {
+                                                <label style="font-size:20px; color:#darkslategrey"><b>$@product.OriginalPrice</b></label>
+
+                                            }
+                                        </div>
+                                        <a asp-action="Details" asp-controller="Home" class="btn btn-success pull-right btn-outline-info" asp-route-id="@product.Id"> View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
