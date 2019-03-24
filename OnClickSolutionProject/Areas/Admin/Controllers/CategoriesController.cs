@@ -8,6 +8,8 @@ using OnClickSolution.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+
+
 namespace OnClickSolution.Areas.Admin.Controllers
 {
     [Authorize(Roles = SD.SuperAdminEndUser)]
@@ -95,6 +97,7 @@ namespace OnClickSolution.Areas.Admin.Controllers
                 return NotFound();
             }
             return View(productType);
+            //TODO
 
         }
 
