@@ -60,6 +60,20 @@ namespace OnClickSolution.Controllers
 
             return View("Index", viewData);
         }
+        public async Task<IActionResult> Review(Reviews review)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(review);
+                await _db.SaveChangesAsync();
+            }
+
+            var ProductDetailVM = new ProductDetailVM();
+
+            ProductDetailVM.Product = await _db.Products.Include(m => m.Categories).Include(m => m.SpecialTags).Where(m => m.Id == review.ProductId).FirstOrDefaultAsync();
+            ProductDetailVM.Reviews = await _db.Reviews.Where(x => x.ProductId == review.ProductId).ToListAsync();
+            return View("Details",ProductDetailVM);
+        }
 
         public async Task<IActionResult> OnSale()
         {
@@ -84,10 +98,11 @@ namespace OnClickSolution.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var product = await _db.Products.Include(m => m.Categories).Include(m => m.SpecialTags).Where(m => m.Id == id).FirstOrDefaultAsync();
+            var ProductDetailVM = new ProductDetailVM();
 
-
-            return View(product);
+            ProductDetailVM.Product = await _db.Products.Include(m => m.Categories).Include(m => m.SpecialTags).Where(m => m.Id == id).FirstOrDefaultAsync();
+            ProductDetailVM.Reviews = await _db.Reviews.Where(x => x.ProductId == id).ToListAsync();
+            return View(ProductDetailVM);
         }
 
 

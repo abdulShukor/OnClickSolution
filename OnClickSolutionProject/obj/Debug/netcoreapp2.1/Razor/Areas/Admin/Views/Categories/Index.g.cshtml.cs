@@ -63,7 +63,7 @@ using OnClickSolution.Models;
             WriteLiteral("\r\n<br />  <br />\r\n<div class=\"row\">\r\n    <div class=\"col-6\">\r\n\r\n    <h2 class=\"text-info\"> Product Type List</h2>\r\n\r\n    </div>\r\n    <div class=\"col-6 text-right\">\r\n\r\n        ");
             EndContext();
             BeginContext(271, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81096f4542fb4a16af89f3c8f0331537", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "03b841473df74053882dda871f8e9e58", async() => {
                 BeginContext(315, 44, true);
                 WriteLiteral(" <i class=\"fas fa-plus\"></i> New Produc Type");
                 EndContext();
@@ -115,7 +115,7 @@ Write(Html.DisplayNameFor(m=>m.Name));
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(717, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cdede44d12424225bf42710dd5990f4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0b994f1c1b764e528a58bf9c2e6c4e7d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
