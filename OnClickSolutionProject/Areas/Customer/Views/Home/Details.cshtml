@@ -1,4 +1,4 @@
-﻿@model OnClickSolution.Models.Products
+﻿@model OnClickSolution.Models.ViewModel.ProductDetailVM
 @using OnClickSolution.Extensions
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
@@ -9,53 +9,53 @@
         <div class="col-8">
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Name"></label>
+                    <label asp-for="Product.Name"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Name" class="form-control" readonly />
+                    <input asp-for="Product.Name" class="form-control" readonly />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Description"></label>
+                    <label asp-for="Product.Description"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Description" class="form-control" readonly />
+                    <input asp-for="Product.Description" class="form-control" readonly />
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="OriginalPrice"></label>
+                    <label asp-for="Product.OriginalPrice"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="OriginalPrice" class="form-control" readonly />
+                    <input asp-for="Product.OriginalPrice" class="form-control" readonly />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="PromotionalPrice"></label>
+                    <label asp-for="Product.PromotionalPrice"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="PromotionalPrice" class="form-control" readonly />
+                    <input asp-for="Product.PromotionalPrice" class="form-control" readonly />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Categories"></label>
+                    <label asp-for="Product.Categories"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Categories.Name" class="form-control" readonly />
+                    <input asp-for="Product.Categories.Name" class="form-control" readonly />
                 </div>
             </div>
-            @if (Model.SpecialTags != null)
+            @if (Model.Product.SpecialTags != null)
             {
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="SpecialTags"></label>
+                        <label asp-for="Product.SpecialTags"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="SpecialTags.Name" class="form-control" readonly />
+                        <input asp-for="Product.SpecialTags.Name" class="form-control" readonly />
                     </div>
                 </div>
             }
@@ -66,7 +66,7 @@
                     @{
                         bool isInBag = false;
                         List<int> lstCart = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ShoppingCartList");
-                        if (lstCart != null && lstCart.Contains(Model.Id))
+                        if (lstCart != null && lstCart.Contains(Model.Product.Id))
                         {
                             isInBag = true;
 
@@ -74,12 +74,12 @@
                     }
                     @if (isInBag)
                     {
-                        <button type="submit" value="Remove From Bag" asp-action="remove" asp-route-id="@Model.Id" class="btn btn-danger form-control">Remove From Bag</button>
+                        <button type="submit" value="Remove From Bag" asp-action="remove" asp-route-id="@Model.Product.Id" class="btn btn-danger form-control">Remove From Bag</button>
 
                     }
                     else
                     {
-                        <button type="submit" value="Add to Bag" asp-route-id="@Model.Id" class="btn btn-primary form-control">Add To Bag</button>
+                        <button type="submit" value="Add to Bag" asp-route-id="@Model.Product.Id" class="btn btn-primary form-control">Add To Bag</button>
                     }
                 </div>
             </div>
@@ -87,9 +87,9 @@
         <div class="col-1">
         </div>
         <div class="col-3">
-            <img src="@Model.Image" width="100%" style="border-radius:5px; border:1px solid #bbb9b9;" />
+            <img src="@Model.Product.Image" width="100%" style="border-radius:5px; border:1px solid #bbb9b9;" />
             <br /><br />
-            @if (Model.Available)
+            @if (Model.Product.Available)
             {
                 <img src="~/images/inStock.png" width="50%" />
 
@@ -98,8 +98,39 @@
 
         <br />
         <div class="form-group">
-            <input hidden asp-for="Id" />
+            <input hidden asp-for="Product.Id" />
             <a asp-action="Index" class="btn btn-success">Back to List</a>
         </div>
     </div>
 </form>
+<div>
+    <h4>Reviews by users</h4>
+    <div>
+        <ul>
+        @foreach (var review in Model.Reviews)
+        {
+            <li>
+                <P>@review.Text<span> - @review.Author</span></P>
+                
+            </li>
+        }
+        </ul>
+    </div>
+    <div>
+        @using (Html.BeginForm("Review", "Home", FormMethod.Post))
+            {
+
+            <div class="form-group row  mt-4">
+                <div class="col-8">
+                    <input type="hidden" name="productId" value="@Model.Product.Id" />
+                    <input type="text" name="author" class="form-control" placeholder="Your Name" />
+                    <input type="text" name="text" class="form-control" placeholder="Your Review" />
+                </div>
+                <div class="col-1">
+                    <input type="submit" class="btn btn-primary" value="Submit my Review" />
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

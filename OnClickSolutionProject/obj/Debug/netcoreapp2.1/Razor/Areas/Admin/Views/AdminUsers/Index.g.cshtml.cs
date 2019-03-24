@@ -62,7 +62,7 @@ using OnClickSolution.Models;
             WriteLiteral("<br /><br />\r\n<div class=\"row\">\r\n    <div class=\"col-6\">\r\n        <h2 class=\"text-info\"> Admin Users List</h2>\r\n    </div>\r\n    <div class=\"col-6 text-right\">\r\n        ");
             EndContext();
             BeginContext(277, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5260a12600d74812a5fa3853b9ca5d3c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ad05667778e413f89ac533ea0b3c271", async() => {
                 BeginContext(350, 48, true);
                 WriteLiteral("<i class=\"fas fa-plus\"></i>&nbsp; New Admin User");
                 EndContext();
