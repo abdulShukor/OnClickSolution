@@ -100,7 +100,7 @@ using OnClickSolution.Models;
             WriteLiteral("                        <li>\r\n                            ");
             EndContext();
             BeginContext(1143, 90, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd8df24989847fe8b6ded0b5a0ea321", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d28c166cca9d48f59174fc0116ea4b0c", async() => {
                 BeginContext(1216, 13, false);
 #line 32 "D:\College\W2019\Project2 [COMP313]\onClickSolution\OnClickSolution\OnClickSolutionProject\Areas\Customer\Views\Home\Index.cshtml"
                                                                                                Write(category.Name);
@@ -167,7 +167,7 @@ using OnClickSolution.Models;
             WriteLiteral("                        <li>\r\n                            ");
             EndContext();
             BeginContext(1719, 81, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66fed339f73145c99156948aae0785cf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8055c596dd714a059b5f2d39261c15f3", async() => {
                 BeginContext(1788, 8, false);
 #line 47 "D:\College\W2019\Project2 [COMP313]\onClickSolution\OnClickSolution\OnClickSolutionProject\Areas\Customer\Views\Home\Index.cshtml"
                                                                                            Write(tag.Name);
@@ -327,7 +327,7 @@ WriteAttributeValue("", 2967, product.Image, 2967, 14, false);
             WriteLiteral("                                        </div>\r\n                                        ");
             EndContext();
             BeginContext(4075, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "22576c05b5854a01a0a22aa1d17b91ce", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65f64852452b4d26b7bcff38891c4733", async() => {
                 BeginContext(4200, 13, true);
                 WriteLiteral(" View Details");
                 EndContext();
