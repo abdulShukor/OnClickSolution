@@ -8,6 +8,7 @@ using OnClickSolution.Models;
 using OnClickSolution.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace OnClickSolution.Areas.Customer.Controllers
 {
@@ -15,13 +16,15 @@ namespace OnClickSolution.Areas.Customer.Controllers
     public class ShoppingCartController : Controller
     {
         private readonly ApplicationDbContext _db;
+        private readonly UserManager<IdentityUser> _userManager;
 
         [BindProperty]
         public ShoppingCartViewModel ShoppingCartVM { get; set; }
 
-        public ShoppingCartController(ApplicationDbContext db)
+        public ShoppingCartController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
         {
             _db = db;
+            _userManager = userManager;
             ShoppingCartVM = new ShoppingCartViewModel()
             {
                 Products = new List<Models.Products>()
@@ -41,6 +44,14 @@ namespace OnClickSolution.Areas.Customer.Controllers
                     ShoppingCartVM.Products.Add(prod);
                 }
             }
+            var currentUserId = _userManager.GetUserId(HttpContext.User);
+            var currentUser = await _db.ApplicationUser.FindAsync(currentUserId);
+            if (currentUser == null)
+            {
+                currentUser = new OnClickSolutionSolution.Models.ApplicationUser();
+            }
+            ShoppingCartVM.User = currentUser;
+
             return View(ShoppingCartVM);
         }
 

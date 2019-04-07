@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnClickSolutionSolution.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,5 +11,6 @@ namespace OnClickSolution.Models.ViewModel
 
         public List<Products> Products { get; set; }
         public Appointments Appointments { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

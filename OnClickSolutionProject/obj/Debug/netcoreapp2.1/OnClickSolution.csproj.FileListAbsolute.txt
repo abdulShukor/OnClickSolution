@@ -286,3 +286,4 @@ C:\Users\homai\Desktop\OnClickSolution\OnClickSolutionProject\obj\Debug\netcorea
 C:\Users\homai\Desktop\OnClickSolution\OnClickSolutionProject\obj\Debug\netcoreapp2.1\OnClickSolution.dll
 C:\Users\homai\Desktop\OnClickSolution\OnClickSolutionProject\obj\Debug\netcoreapp2.1\OnClickSolution.pdb
 C:\Users\homai\Desktop\OnClickSolution\OnClickSolutionProject\obj\Debug\netcoreapp2.1\OnClickSolution.csproj.CopyComplete
+D:\College\W2019\Project2 [COMP313]\onClickSolution\OnClickSolution\OnClickSolutionProject\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\Profile\Profile.g.cshtml.cs

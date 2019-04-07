@@ -10,7 +10,7 @@ namespace OnClickSolutionSolution.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Display(Name = "Sales Person")]
+        [Display(Name = "Full Name")]
         public string Name { get; set; }
 
         [NotMapped]
