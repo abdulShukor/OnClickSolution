@@ -49,4 +49,8 @@
     <Folder Include="wwwroot\images\ProductImage\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\Inventory\index.cshtml" />
+  </ItemGroup>
+
 </Project>
