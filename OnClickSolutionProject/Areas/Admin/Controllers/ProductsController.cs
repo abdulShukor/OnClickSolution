@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OnClickSolution.Controllers
 {
-    [Authorize(Roles = SD.SuperAdminEndUser)]
+    [Authorize(Roles = SD.SuperAdminEndUser + "," + SD.AdminEndUser)]
 
     [Area("Admin")]
     public class ProductsController : Controller

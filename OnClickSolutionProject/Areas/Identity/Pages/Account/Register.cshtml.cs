@@ -78,8 +78,7 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
         }
-
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+            public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
@@ -94,7 +93,16 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(SD.CustomerEndUser));
 
                     }
-                    await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
+
+                    if (User.IsInRole(SD.SuperAdminEndUser))
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
+                    }
+                    
 
 
 

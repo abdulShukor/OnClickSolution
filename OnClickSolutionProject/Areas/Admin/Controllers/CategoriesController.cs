@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OnClickSolution.Areas.Admin.Controllers
 {
-    [Authorize(Roles = SD.SuperAdminEndUser)]
+    [Authorize(Roles = SD.SuperAdminEndUser + "," + SD.AdminEndUser)]
+
 
     [Area("Admin")]
     public class CategoriesController : Controller
