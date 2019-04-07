@@ -5,21 +5,23 @@
         <!-- Search bar-->
 
 
-        <div class="position-fixed">
+        <div>
             <div>
                 @using (Html.BeginForm("Search", "Home", FormMethod.Post))
             {
+                    <div class="row mr-1">
+                        <div class="form-group row  mt-4">
+                            <div class="col-10">
+                                <input type="text" name="keyword" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                                <input type="submit" class="btn btn-primary" value="Go" />
+                            </div>
 
-                    <div class="form-group row  mt-4">
-                        <div class="col-8">
-                            <input type="text" name="keyword" class="form-control" />
-                        </div>
-                        <div class="col-1">
-                            <input type="submit" class="btn btn-primary" value="Go" />
                         </div>
                     </div>
                 }
-            </div>
+                    </div>
             <!-- Categories-->
             <div>
                 <div class="sidebar-header">
@@ -89,6 +91,9 @@
 
                                             }
                                         </div>
+
+                                    </div>
+                                    <div class="row">
                                         <a asp-action="Details" asp-controller="Home" class="btn btn-success pull-right btn-outline-info" asp-route-id="@product.Id"> View Details</a>
                                     </div>
                                 </div>

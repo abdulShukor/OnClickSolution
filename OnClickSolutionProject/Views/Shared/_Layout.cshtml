@@ -67,7 +67,7 @@
                                         </li>
 
                                     }
-                                    <li class="nav-item"><a class="nav-link" asp-area="Customer" asp-controller="Profile">My Profile</a></li>
+                                    
 
                                     }
                 @if (User.IsInRole(SD.SuperAdminEndUser))
@@ -76,6 +76,10 @@
                     <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="SpecialTags" asp-action="Index">Special Tags</a></li>
                     <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a></li>
                     <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="AdminUsers" asp-action="Index">Admin Users</a></li>
+                }
+                @if (User.IsInRole(SD.CustomerEndUser))
+                {
+                    <li class="nav-item"><a class="nav-link" asp-area="Customer" asp-controller="Profile">My Profile</a></li>
                 }
 
 
