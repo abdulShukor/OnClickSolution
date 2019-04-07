@@ -72,9 +72,6 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
             [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
 
-
-            [Display(Name = "Super Admin")]
-            public bool IsSuperAdmin { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -91,25 +88,13 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-
-                    if(!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
+                    // Create nessecary roles if not exist
+                    if (!await _roleManager.RoleExistsAsync(SD.CustomerEndUser))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
-                    }
-
-                    if(!await _roleManager.RoleExistsAsync(SD.SuperAdminEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.SuperAdminEndUser));
+                        await _roleManager.CreateAsync(new IdentityRole(SD.CustomerEndUser));
 
                     }
-                    if (Input.IsSuperAdmin)
-                    {
-                        await _userManager.AddToRoleAsync(user, SD.SuperAdminEndUser);
-                    }
-                    else
-                    {
-                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
-                    }
+                    await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
 
 
 
