@@ -100,7 +100,6 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
 
             if (ModelState.IsValid)
             {
@@ -113,11 +112,11 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
                     var roles = await _userManager.GetRolesAsync(idUser);
                    if (roles.FirstOrDefault().Equals(SD.CustomerEndUser))
                     {
-                        returnUrl = returnUrl ?? Url.Content("/");
+                        returnUrl = returnUrl ?? Url.Content("~/");
                     }
                     else
                     {
-                        returnUrl = returnUrl ?? Url.Content("~/");
+                        returnUrl = returnUrl ?? Url.Content("~/Admin/Categories");
                     }
 
                     _logger.LogInformation("User logged in.");

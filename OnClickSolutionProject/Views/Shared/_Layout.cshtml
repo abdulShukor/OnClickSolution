@@ -39,11 +39,7 @@
         <div class="collapse navbar-collapse">
             <a class="navbar-brand" href="#">OnClickSolution</a>
             <ul class="navbar-nav mr-auto">
-                @if (User.IsInRole(SD.AdminEndUser) || User.IsInRole(SD.SuperAdminEndUser))
-                {
-                    <li class="nav-item"><a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index" asp-route-id="0">Home</a></li>
-                }
-                else
+                @if (!User.IsInRole(SD.AdminEndUser) && !User.IsInRole(SD.SuperAdminEndUser))
                 {
                     <li class="nav-item"><a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Shop All</a></li>
                     <li class="nav-item"><a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="OnSale">On Sales</a></li>
