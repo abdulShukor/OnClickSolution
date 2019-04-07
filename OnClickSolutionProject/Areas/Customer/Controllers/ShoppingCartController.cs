@@ -123,5 +123,17 @@ namespace OnClickSolution.Areas.Customer.Controllers
             return View(ShoppingCartVM);
         }
 
+        public IActionResult Payment()
+        {
+            return View("Payment");
+        }
+
+        [HttpPost]
+        public IActionResult OrderComplete()
+        {
+            HttpContext.Session.Remove("ShoppingCartList");
+            return Redirect("/");
+        }
+
     }
 }

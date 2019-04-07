@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Payment Confirmed";
+}
+<br />
+<div class="form-text mt-5 mb-5 text-center">
+    <h3 class="text-info">Thank you for your payment</h3>
+    </div>
+    <div class="form-text mt-5 mb-5 text-center">
+        <h4>Your order has been placed.</h4>
+        <p>One of our customer service representatives will contact you within 2 business days to confirm your order packaging.</p>
+    </div>
+<div class="text-center">
+    <img class="card-img" style="max-height:20em; max-width:20em;" src="~/images/order.jpg"/>
+</div>
+<div class="float-none">
+    <form method="post">
+        <button type="submit" class="btn btn-success" asp-action="OrderComplete">
+            Back to Home Page
+        </button>
+        </form>
+</div>
