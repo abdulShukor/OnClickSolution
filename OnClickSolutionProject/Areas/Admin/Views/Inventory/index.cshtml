@@ -4,8 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<h2>Inventory</h2>
+<h2 class="text-info mt-5">Inventory</h2>
 <br />
 <div>
     <table class="table table-striped border">
@@ -16,7 +15,6 @@
             <th>Price</th>
             <th>Category</th>
             <th>Description</th>
-            <th>@Html.DisplayNameFor(m => m.Available)</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -33,9 +31,7 @@
                 <td>
                     @Html.DisplayFor(m => item.Description)
                 </td>
-                <td>
-                    @Html.DisplayFor(m => item.Available)
-                </td>
+               
             </tr>
         }
     </table>

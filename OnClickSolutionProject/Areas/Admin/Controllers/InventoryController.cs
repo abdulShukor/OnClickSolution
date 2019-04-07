@@ -37,7 +37,7 @@ namespace OnClickSolution.Areas.Customer.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var product = _db.Products.Include(m => m.Categories);
+            var product = _db.Products.Include(m => m.Categories).Where(x=>x.Available);
             return View(await product.ToListAsync());
         }
     }

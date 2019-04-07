@@ -111,7 +111,7 @@ namespace OnClickSolutionSolution.Areas.Identity.Pages.Account
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
 
-                    return RedirectToAction("Index", "AdminUsers", new { area = "Admin" });
+                    return LocalRedirect("/");
 
 
                 }
